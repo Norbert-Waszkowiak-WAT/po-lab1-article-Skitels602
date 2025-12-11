@@ -1,36 +1,27 @@
-#ifndef BOOK_H
-#define BOOK_H
-
-#include <string>
+#ifndef BOOK
+#define BOOK
 #include <vector>
+#include <iostream>
+#include "article.h"
 #include "author.h"
 #include "chapter.h"
-
-class Book {
-private:
-    std::string title;
+using namespace std;
+class Book{
+    private:
+    string title;
     Author author;
     int publicationYear;
-    std::vector<Chapter> chapters;
-
-public:
+    vector<Chapter> chapters;
+    public:
     Book();
-    Book(std::string bookTitle, Author bookAuthor, int year, std::vector<Chapter> &bookChapter);
-
-    void addChapter(Chapter &chapter);
-
+    Book(string bookTitle, Author bookAuthor, int year, const vector<Chapter> &bookChapter);
     void addChapter(Chapter newChapter);
-
-  
-    std::string getTitle() const { return title; }
-    Author getAuthor() const { return author; }
-    int getPublicationYear() const { return publicationYear; }
-    std::vector<Chapter> &getChapters(); // zwraca referencję na wektor
-
-   
-    void setTitle(const std::string &newTitle) { title = newTitle; }
-    void setAuthor(const Author &newAuthor) { author = newAuthor; }
-    void setPublicationYear(int newYear) { publicationYear = newYear; }
+    void displayInfo();
+    string getTitle();
+    Author getAuthor();
+    int getPublicationYear();
+    vector<Chapter> &getChapters();
+ 
+ 
 };
-
 #endif
